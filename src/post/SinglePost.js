@@ -22,7 +22,8 @@ class SinglePost extends Component {
     };
 
     componentDidMount = () => {
-        const postId = this.props.match.params.postId;
+        //const postId = this.props.match.params.postId;
+        const postId = this.props.id;
         singlePost(postId).then(data => {
             if (data.error) {
                 console.log(data.error);
@@ -64,7 +65,8 @@ class SinglePost extends Component {
     };
 
     deletePost = () => {
-        const postId = this.props.match.params.postId;
+        // const postId = this.props.match.params.postId;
+        const postId = this.props.id;
         const token = isAuthenticated().token;
         remove(postId, token).then(data => {
             if (data.error) {
